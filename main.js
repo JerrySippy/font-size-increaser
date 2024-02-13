@@ -3,20 +3,13 @@ rightWristX = 0;
 leftWristX = 0;
 
 function setup() {
-    video = createCapture(VIDEO);
-    video.size(550, 550);
-    canvas = createCanvas(550, 450);
-    canvas.position(950, 150);
-  
-    poseNet = ml5.poseNet(video, modelLoaded);
-    poseNet.on("pose", gotPoses);
-  
-  background("black");
-  textSize(32);
-  fill(255);
-  stroke(0);
-  strokeWeight(4);
-  text("hi", 50, 50);
+  video = createCapture(VIDEO);
+  video.size(550, 550);
+  canvas = createCanvas(550, 450);
+  canvas.position(950, 150);
+
+  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on("pose", gotPoses);
 }
 
 function gotPoses(results) {
@@ -46,4 +39,7 @@ function draw() {
 
   document.getElementById("font_size").innerHTML =
     "font size will be " + difference + "px";
+  textSize(difference);
+  fill("#FFE787");
+  text('Peter', 50, 400);
 }
